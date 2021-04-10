@@ -52,9 +52,8 @@ class AddCustomer extends Component {
           </div>
 
           <div>
-            <label>Address </label>
-            <input
-              type="textarea"
+            <label>Address: </label>
+            <textarea
               name="address"
               ref={this.addressRef}
               onChange={() => this.setAddress()}
@@ -62,7 +61,7 @@ class AddCustomer extends Component {
           </div>
 
           <div>
-            <label>CName: </label>
+            <label>Age: </label>
             <input
               type="number"
               name="age"
