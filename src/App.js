@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import DisplayCustomers from './DisplayCustomers';
+import AddCustomer from './AddCustomer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  let customer1 = {
+    cname: "Tanisha",
+    address: "102, Sector 56, Phase 6, Mohali, Punjab",
+    age: 21,
+  };
+  let customer2 = {
+    cname: "Samar",
+    address: "301, Sushma Apartments, Sector 17, Phase 9, Chandigarh",
+    age: 26,
+  };
+  let customer3 = {
+    cname: "Sujay",
+    address: "548, ABC Heights, Airport Road, Daman, Daman and Diu",
+    age: 24,
+  };
+  let customers = [customer1, customer2, customer3];
+
+  return( 
+
+      <div>
+        <DisplayCustomers customers = {customers} />
+        <AddCustomer />
+      </div>
+
   );
 }
 
