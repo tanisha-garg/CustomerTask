@@ -25,10 +25,10 @@ function App() {
   return( 
 
       <div>
-        {/* <DisplayCustomer customers = {customers} />
-        <AddCustomer /> */}
+        {/* <DisplayCustomer customers = {customers} /> */}
         {/* <DisplayCustomerDetails customer = {customer1} /> */}
         <GetCustomerDetails />
+        {/* <AddCustomer /> */}
       </div>
 
   );

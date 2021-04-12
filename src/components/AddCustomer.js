@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {addCustomer} from '../service/CustomerService';
+import DisplayCustomerDetails from './DisplayCustomerDetails';
 
 class AddCustomer extends Component {
 
@@ -8,7 +10,7 @@ class AddCustomer extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { cname: "", address: "", age: 0, formStatus: '' };
+    this.state = { cname: undefined, address: undefined, age: undefined, errMsg: undefined, customer:undefined };
   }
 
   setCustomerName(){
@@ -31,6 +33,18 @@ class AddCustomer extends Component {
 
   submitHandler = (event) => {
       event.preventDefault();
+      let formData = {...this.state};
+      const successFun=(response)=>{
+        console.log("inside success function", response);
+        this.setState({...this.state, customer:response.data});
+      };
+      const errFun=(error)=>{
+        console.log("inside errFun", error);
+        this.setState({...this.state, errMsg:error.response.data});
+      }
+      const promise = addCustomer(formData);
+      promise.then(successFun)
+      .catch(errFun);
       this.setState({...this.state, formStatus: "Customer Details sent successfully"});
   }
 
@@ -74,13 +88,27 @@ class AddCustomer extends Component {
 
         </form>
 
-        <div>
+        {this.state.customer ? (
+          <div>
+            <h2>Customer successfully created</h2>
+            <DisplayCustomerDetails customer = {this.state.customer} />
+          </div>
+        ) : "" }
+
+        {this.state.errMsg ? (
+          <div>
+            Request was not successful. <br />
+            {this.state.errMsg}
+          </div>
+        ) : "" }
+
+        {/* <div>
             <h2><b>Details Entered</b></h2>
             Name: {this.state.cname} <br />
             Address: {this.state.address} <br />
             Age: {this.state.age}<br />
             Form Status: {this.state.formStatus}
-        </div>
+        </div> */}
 
       </div>
     );
