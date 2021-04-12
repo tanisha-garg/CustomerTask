@@ -45,7 +45,7 @@ class AddCustomer extends Component {
       const promise = addCustomer(formData);
       promise.then(successFun)
       .catch(errFun);
-      this.setState({...this.state, formStatus: "Customer Details sent successfully"});
+      //this.setState({...this.state, formStatus: "Customer Details sent successfully"});
   }
 
   render() {
@@ -90,7 +90,7 @@ class AddCustomer extends Component {
 
         {this.state.customer ? (
           <div>
-            <h2>Customer successfully created</h2>
+            <h4>Customer successfully created</h4>
             <DisplayCustomerDetails customer = {this.state.customer} />
           </div>
         ) : "" }

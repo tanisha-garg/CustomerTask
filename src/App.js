@@ -27,8 +27,8 @@ function App() {
       <div>
         {/* <DisplayCustomer customers = {customers} /> */}
         {/* <DisplayCustomerDetails customer = {customer1} /> */}
-        <GetCustomerDetails />
-        {/* <AddCustomer /> */}
+        {/* <GetCustomerDetails /> */}
+        <AddCustomer />
       </div>
 
   );

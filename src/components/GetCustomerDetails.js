@@ -16,12 +16,12 @@ class GetCustomerDetails extends Component{
         event.preventDefault();
         console.log("Before making request");
         const promise = fetchCustomer(this.state.id);
-        const successFun = (response) => {
+        const successFun=(response)=>{
             const customer = response.data;
             this.setState({...this.state, customer:customer, errMsg:undefined});
             console.log("Customer fetched", this.state.customer);
         };
-        const errFun = (error) => {
+        const errFun=(error)=>{
             console.log("There was an error", error);
             this.setState({...this.state, customer:undefined, errMsg:error.response.data});
         };
